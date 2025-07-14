@@ -1,31 +1,174 @@
-<!-- ... mevcut kodun devamı ... -->
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Su Aygırı Krallığı - Eğlence Modu</title>
+<style>
+  body {
+    margin:0; padding:0;
+    background: linear-gradient(to bottom, #87ceeb, #1e90ff);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #222;
+    overflow-x: hidden;
+    text-align: center;
+  }
+  h1 {
+    margin-top: 20px;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px #0003;
+  }
+  .aygiri-img {
+    width: 220px;
+    animation: bounce 2s infinite;
+    margin: 20px auto;
+    display: block;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-25px);}
+  }
+  button {
+    background-color: #005f9e;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 8px #004f8e;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #0091ff;
+  }
+  #confetti-canvas {
+    position: fixed;
+    top:0; left:0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  .marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 15s linear infinite;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px #0007;
+    margin-top: 20px;
+  }
+  @keyframes marquee {
+    0%   { transform: translateX(100%) }
+    100% { transform: translateX(-100%) }
+  }
+</style>
+</head>
+<body>
 
-<div class="bio">
-    <h2>Su Aygırının Efsanevi Maceraları 🦛📜</h2>
-    <ul style="text-align:left; max-width:600px; margin:auto;">
-        <li>Dağ Ayısıyla ilk karşılaşma: “Bir bakışta anladılar, ikisi de gülmekten öldü!”</li>
-        <li>Gizli süper güç: Isırmak değil, kocaman bir kahkaha atmak!</li>
-        <li>Su aygırı dansı: Kardeşlik ritmiyle sallanmak.</li>
-    </ul>
+<h1>Su Aygırı Krallığı 🦛🎉</h1>
+<img class="aygiri-img" src="https://upload.wikimedia.org/wikipedia/commons/0/07/Hippopotamus_in_South_Luangwa.jpg" alt="Su Aygırı" />
+
+<div>
+  <button id="homurtu-btn">Su Aygırı Homurtusu 🔊</button>
+  <button id="kukreme-btn">Dağ Ayısı Kükremesi 🔊</button>
+  <button id="surpriz-btn">Sürpriz Şaka 🎭</button>
 </div>
 
-<div class="bio">
-    <h2>Komik Fotoğraf Galerisi 📸</h2>
-    <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap; max-width:700px; margin:auto;">
-        <img src="https://i.imgur.com/Ra1Tr6W.gif" alt="Dans eden su aygırı" width="150" style="border-radius:12px; box-shadow:0 0 10px #555;" />
-        <img src="https://i.imgur.com/8LnT3z5.gif" alt="Komik dağ ayısı" width="150" style="border-radius:12px; box-shadow:0 0 10px #555;" />
-        <img src="https://i.imgur.com/qRmWXYh.gif" alt="Mutlu su aygırı" width="150" style="border-radius:12px; box-shadow:0 0 10px #555;" />
-    </div>
-</div>
+<div class="marquee">🎉 Su Aygırı ve Dağ Ayısı Dostluğu Sonsuza Kadar! 🎉</div>
 
-<div class="bio">
-    <h2>Kardeşlik Sözlüğü 📚</h2>
-    <dl style="text-align:left; max-width:600px; margin:auto;">
-        <dt><strong>Su Aygırı:</strong></dt>
-        <dd>Kardeşim gibi gördüğüm, su gibi sakin ama gerektiğinde güçlü.</dd>
-        <dt><strong>Dağ Ayısı:</strong></dt>
-        <dd>Vahşi ruhlu ama sıcak kalpli dostum.</dd>
-        <dt><strong>Homurtu:</strong></dt>
-        <dd>Sinirli değil, sadece biraz komik ses çıkarma hali.</dd>
-    </dl>
-</div>
+<canvas id="confetti-canvas"></canvas>
+
+<audio id="homurtu-ses" src="https://www.soundjay.com/animal/hippo-grunt-01.mp3"></audio>
+<audio id="kukreme-ses" src="https://www.soundjay.com/animal/bear-growl-1.mp3"></audio>
+
+<script>
+// Ses butonları
+const homurtuBtn = document.getElementById('homurtu-btn');
+const kukremeBtn = document.getElementById('kukreme-btn');
+const surprizBtn = document.getElementById('surpriz-btn');
+const homurtuSes = document.getElementById('homurtu-ses');
+const kukremeSes = document.getElementById('kukreme-ses');
+
+homurtuBtn.addEventListener('click', () => homurtuSes.play());
+kukremeBtn.addEventListener('click', () => kukremeSes.play());
+
+// Sürpriz şaka mesajları
+const surpMesajlar = [
+  "Su aygırı dans ediyor! 💃🦛",
+  "Dağ ayısı uyuyor, rahatsız etme! 🐻😴",
+  "Homurtu geliyor, dikkat et! 🔊🦛",
+  "Kükreme sesiyle orman inliyor! 🌲🐻",
+  "Sen su aygırı mısın, yoksa dağ ayısı mı? 🤔"
+];
+
+surprizBtn.addEventListener('click', () => {
+  const msg = surpMesajlar[Math.floor(Math.random() * surpMesajlar.length)];
+  alert(msg);
+});
+
+// Konfeti efekti
+const confettiCanvas = document.getElementById('confetti-canvas');
+const ctx = confettiCanvas.getContext('2d');
+let confettiPieces = [];
+
+function resizeCanvas() {
+  confettiCanvas.width = window.innerWidth;
+  confettiCanvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+class Confetti {
+  constructor() {
+    this.x = Math.random() * confettiCanvas.width;
+    this.y = Math.random() * confettiCanvas.height - confettiCanvas.height;
+    this.size = (Math.random() * 8) + 4;
+    this.speed = (Math.random() * 3) + 1;
+    this.angle = Math.random() * 2 * Math.PI;
+    this.color = `hsl(${Math.random() * 360}, 70%, 60%)`;
+    this.drift = (Math.random() * 2) - 1;
+  }
+  update() {
+    this.y += this.speed;
+    this.x += this.drift;
+    this.angle += 0.05;
+    if(this.y > confettiCanvas.height) {
+      this.y = -this.size;
+      this.x = Math.random() * confettiCanvas.width;
+    }
+  }
+  draw() {
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.angle);
+    ctx.fillStyle = this.color;
+    ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size);
+    ctx.restore();
+  }
+}
+
+function createConfetti(num) {
+  for(let i = 0; i < num; i++) {
+    confettiPieces.push(new Confetti());
+  }
+}
+
+function animate() {
+  ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+  confettiPieces.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animate);
+}
+
+createConfetti(150);
+animate();
+</script>
+
+</body>
+</html>
