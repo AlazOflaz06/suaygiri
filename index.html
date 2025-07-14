@@ -3,52 +3,55 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Su Aygırı Krallığı - Full Eğlence</title>
+<title>Nisa ve Su Aygırı Şakaları 🦛😂</title>
 <style>
   body {
     margin:0; padding:0;
-    background: linear-gradient(to bottom, #87ceeb, #1e90ff);
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(to bottom, #a0d8f7, #2a9df4);
+    font-family: system-ui, Arial, sans-serif;
     color: #222;
     overflow-x: hidden;
     text-align: center;
     user-select:none;
   }
   h1 {
-    margin-top: 20px;
-    font-size: 3rem;
-    text-shadow: 2px 2px 4px #0003;
+    margin-top: 25px;
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px #0003;
   }
   .aygiri-img {
     width: 220px;
-    animation: bounce 2s infinite;
-    margin: 20px auto;
+    animation: floatUpDown 3s ease-in-out infinite;
+    margin: 25px auto;
     display: block;
   }
-  @keyframes bounce {
+  @keyframes floatUpDown {
     0%, 100% { transform: translateY(0);}
-    50% { transform: translateY(-25px);}
+    50% { transform: translateY(-20px);}
   }
   button {
-    background-color: #005f9e;
+    background-color: #0077cc;
     border: none;
-    padding: 15px 30px;
-    margin: 10px;
-    border-radius: 20px;
+    padding: 14px 28px;
+    margin: 12px 8px;
+    border-radius: 18px;
     color: #fff;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 0 8px #004f8e;
+    box-shadow: 0 0 10px #005fa3;
     transition: background-color 0.3s ease;
+    font-size: 1rem;
   }
   button:hover {
-    background-color: #0091ff;
-    animation: shake 0.5s;
+    background-color: #0099ff;
+    animation: wobble 0.5s;
   }
-  @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    20%, 60% { transform: translateX(-5px); }
-    40%, 80% { transform: translateX(5px); }
+  @keyframes wobble {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    75% { transform: rotate(4deg); }
   }
   #confetti-canvas {
     position: fixed;
@@ -62,11 +65,12 @@
     overflow: hidden;
     white-space: nowrap;
     box-sizing: border-box;
-    animation: marquee 15s linear infinite;
-    font-size: 1.5rem;
+    animation: marquee 20s linear infinite;
+    font-size: 1.4rem;
     color: #fff;
-    text-shadow: 1px 1px 2px #0007;
-    margin-top: 20px;
+    text-shadow: 1px 1px 3px #0009;
+    margin: 20px 0 30px 0;
+    font-weight: 600;
   }
   @keyframes marquee {
     0%   { transform: translateX(100%) }
@@ -74,118 +78,94 @@
   }
   #floating-hippo {
     position: fixed;
-    bottom: 10px;
-    right: -100px;
-    width: 80px;
-    animation: floatRightToLeft 20s linear infinite;
-    opacity: 0.8;
+    bottom: 12px;
+    right: -120px;
+    width: 90px;
+    animation: floatRightToLeft 22s linear infinite;
+    opacity: 0.85;
     pointer-events:none;
+    filter: drop-shadow(0 0 3px #003a70);
   }
   @keyframes floatRightToLeft {
-    0% { right: -100px; }
+    0% { right: -120px; }
     100% { right: 110%; }
   }
-  #test-section {
-    margin: 30px auto;
-    max-width: 400px;
-    background: #d0ecffcc;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 0 10px #004f8eaa;
-    font-size: 1.1rem;
-  }
-  #test-section h2 {
-    margin-bottom: 15px;
-  }
-  #test-section button {
-    margin: 10px 5px;
-    width: 140px;
-  }
   #joke-area {
-    margin: 20px auto;
-    max-width: 600px;
-    font-size: 1.2rem;
-    background: #a1d4ffcc;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 0 8px #004f8eaa;
+    margin: 15px auto 40px auto;
+    max-width: 650px;
+    font-size: 1.3rem;
+    background: #d6f0ffcc;
+    border-radius: 16px;
+    padding: 22px 18px;
+    box-shadow: 0 0 15px #005ca3aa;
+    font-weight: 600;
+    color: #004e7c;
   }
 </style>
 </head>
 <body>
 
-<h1>Su Aygırı Krallığı - Full Eğlence 🦛🎉</h1>
+<h1>Nisa ve Su Aygırı Dünyası 🦛💙</h1>
 <img class="aygiri-img" src="https://upload.wikimedia.org/wikipedia/commons/0/07/Hippopotamus_in_South_Luangwa.jpg" alt="Su Aygırı" />
 <img id="floating-hippo" src="https://upload.wikimedia.org/wikipedia/commons/0/07/Hippopotamus_in_South_Luangwa.jpg" alt="Yüzen Su Aygırı" />
 
 <div>
-  <button id="homurtu-btn">Su Aygırı Homurtusu 🔊</button>
-  <button id="kukreme-btn">Dağ Ayısı Kükremesi 🔊</button>
-  <button id="surpriz-btn">Sürpriz Şaka 🎭</button>
+  <button id="laugh-btn">Nisa'yı Gülümset 🦛😂</button>
+  <button id="fact-btn">Nisa İçin Su Aygırı Gerçeği 🦛📚</button>
+  <button id="surprise-btn">Sürpriz Şaka Nisa’ya 🎉</button>
 </div>
 
-<div class="marquee">🎉 Su Aygırı ve Dağ Ayısı Dostluğu Sonsuza Kadar! 🎉</div>
+<div class="marquee">🦛 Nisa’nın Su Aygırı Gücü Her Geçen Gün Artıyor! 🦛</div>
 
-<div id="test-section">
-  <h2>Mini Test: Sen Hangisisin?</h2>
-  <p>Sen daha çok su aygırı mısın yoksa dağ ayısı mı? Seçimini yap, sonucu görelim!</p>
-  <button id="btn-hippo">Su Aygırı 🦛</button>
-  <button id="btn-bear">Dağ Ayısı 🐻</button>
-  <div id="test-result" style="margin-top:15px; font-weight:bold;"></div>
-</div>
-
-<div id="joke-area">Burada şaka mesajları belirecek...</div>
+<div id="joke-area">Hoş geldin Nisa! Burada su aygırı şakaları seni bekliyor...</div>
 
 <canvas id="confetti-canvas"></canvas>
 
-<audio id="homurtu-ses" src="sounds/hippo-grunt.mp3"></audio>
-<audio id="kukreme-ses" src="sounds/bear-growl.mp3"></audio>
 <audio id="laugh-sound" src="https://www.soundjay.com/human/laugh-01.mp3"></audio>
-<audio id="surpriz-sound" src="https://www.soundjay.com/misc/surprise-1.mp3"></audio>
+<audio id="surprise-sound" src="https://www.soundjay.com/misc/surprise-1.mp3"></audio>
 
 <script>
-  // Ses butonları
-  const homurtuBtn = document.getElementById('homurtu-btn');
-  const kukremeBtn = document.getElementById('kukreme-btn');
-  const surprizBtn = document.getElementById('surpriz-btn');
-  const homurtuSes = document.getElementById('homurtu-ses');
-  const kukremeSes = document.getElementById('kukreme-ses');
+  const laughBtn = document.getElementById('laugh-btn');
+  const factBtn = document.getElementById('fact-btn');
+  const surpriseBtn = document.getElementById('surprise-btn');
+  const jokeArea = document.getElementById('joke-area');
   const laughSound = document.getElementById('laugh-sound');
-  const surprizSound = document.getElementById('surpriz-sound');
+  const surpriseSound = document.getElementById('surprise-sound');
 
-  homurtuBtn.addEventListener('click', () => homurtuSes.play());
-  kukremeBtn.addEventListener('click', () => kukremeSes.play());
-
-  // Sürpriz şaka mesajları ve ses
-  const surpMesajlar = [
-    "Su aygırı dans ediyor! 💃🦛",
-    "Dağ ayısı uyuyor, rahatsız etme! 🐻😴",
-    "Homurtu geliyor, dikkat et! 🔊🦛",
-    "Kükreme sesiyle orman inliyor! 🌲🐻",
-    "Sen su aygırı mısın, yoksa dağ ayısı mı? 🤔",
-    "Komik şaka zamanı! 😂😂😂",
-    "Dağ ayısı da bazen su aygırı gibi dans eder!",
-    "Beni yakalayabilir misin? 🦛🏃‍♂️"
+  const jokes = [
+    "Nisa'nın gülüşü su aygırından bile bulaşıcı! 😂",
+    "Su aygırları gibi Nisa da hem sakin hem komik!",
+    "Nisa'nın su aygırı hızıyla kimse yarışamaz!",
+    "Su aygırları suda yüzer, Nisa ise hep kalbimizde! 💙",
+    "Nisa su aygırıymış, ama en tatlı su aygırı! 🦛❤️",
+    "Nisa'yla su aygırı arasında gizli bir bağ varmış, inanıyor musun? 😉",
+    "Su aygırı gibi ağır görünür ama Nisa hızla tebessüm ettirir!",
+    "Nisa, su aygırı gibi hem güçlü hem sevgi dolu bir efsane!"
   ];
 
-  surprizBtn.addEventListener('click', () => {
-    const msg = surpMesajlar[Math.floor(Math.random() * surpMesajlar.length)];
-    document.getElementById('joke-area').textContent = msg;
-    surprizSound.play();
-  });
+  const facts = [
+    "Su aygırları aslında çok iyi yüzücüdür, tıpkı Nisa gibi suyu çok sever!",
+    "Su aygırlarının dişleri çok güçlüdür, tıpkı Nisa’nın mizah gücü gibi!",
+    "Su aygırları günde 16 saate kadar uyur, Nisa ise gün boyu enerjik!",
+    "Su aygırları Afrika'nın en büyük memelilerindendir, Nisa ise kalplerimizin en büyüğü!",
+    "Su aygırları terleyemez, Nisa ise her zaman neşesiyle serinletir!",
+  ];
 
-  // Mini test
-  const btnHippo = document.getElementById('btn-hippo');
-  const btnBear = document.getElementById('btn-bear');
-  const testResult = document.getElementById('test-result');
-
-  btnHippo.addEventListener('click', () => {
-    testResult.textContent = "Sen kesinlikle Su Aygırısın! Güçlü, sakin ve komik bir dostsun 🦛💙";
+  laughBtn.addEventListener('click', () => {
+    const msg = jokes[Math.floor(Math.random() * jokes.length)];
+    jokeArea.textContent = msg;
     laughSound.play();
   });
-  btnBear.addEventListener('click', () => {
-    testResult.textContent = "Sen Dağ Ayısı gibisin! Vahşi, koruyucu ve sıcacık kalplisin 🐻❤️";
-    laughSound.play();
+
+  factBtn.addEventListener('click', () => {
+    const msg = facts[Math.floor(Math.random() * facts.length)];
+    jokeArea.textContent = msg;
+  });
+
+  surpriseBtn.addEventListener('click', () => {
+    const msg = "Nisa sürprizi! Su aygırı gibi büyük ve komik bir tebessüm! 🎉🦛";
+    jokeArea.textContent = msg;
+    surpriseSound.play();
   });
 
   // Konfeti efekti
@@ -244,7 +224,7 @@
     requestAnimationFrame(animate);
   }
 
-  createConfetti(150);
+  createConfetti(120);
   animate();
 </script>
 
